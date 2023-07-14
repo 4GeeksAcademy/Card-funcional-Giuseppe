@@ -22,7 +22,14 @@ import "../style/index.css";
         city: null
     }
  */
-function render(variables = {}) {
+function render(
+  variables = {
+    name: "",
+    lastName: "",
+    role: "",
+    city: ""
+  }
+) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
@@ -33,10 +40,13 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
+          <h1>${variables.name ? variables.name : " "}
+          ${variables.lastname ? variables.lastname : " "}</h1>
+          
+          <h2> ${variables.role ? variables.role : "Role"}</h2>
+          <h3>${variables.city ? variables.city : "City"}</h3>
+          <h3>${variables.country ? variables.country : "Country"}</h3>
+          <ul class=${variables.socialMediaPosition}>
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
             <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
